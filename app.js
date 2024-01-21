@@ -12,6 +12,7 @@ const app = express();
 
 // const PORT = process.env.PORT || 5000;
 //middlewawres
+const port = 5000;
 app.use(cors());
 app.use(express.json());
 app.use("/user", userRouter);
@@ -24,7 +25,7 @@ mongoose
     `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@cluster0.6r6mwhf.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() =>
-    app.listen(5000, () =>
+    app.listen(process.env.PORT || port, () =>
       console.log("Connected to  Database and Server is running")
     )
   )
